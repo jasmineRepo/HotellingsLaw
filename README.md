@@ -4,13 +4,10 @@ Hotelling (1929) studied competition between firms, taking into account their ge
 
 This application of Hotelling’s model simplifies it by only considering changes in location, assuming identical prices across firms and constant price over time. Following Ottino, Stonedahl, and Wilensky (2009), it however extends the original paper by allowing stores to move along a plane (two-dimension movement). 
 
-One difference between their representation and ours is the way distance between consumers and firms is defined. In their model, one unit of distance corresponds to the four cardinal directions around a given coordinate. Here, we also included the patches at the north-west, north-east, south-east and south-west (see figure below, grey square represents a consumer, red circle a firm). 
-Ottino et al. (2009) distance: 
-![alt text](https://github.com/HugoLhuillier/images/blob/master/4neighbours.png "Ottino et al. (2009) distance")
-Our distance: 
-![alt text](https://github.com/HugoLhuillier/images/blob/master/8neighbours.png "Our distance")
+One difference between their representation and ours is the way distance between consumers and firms is defined. In their model, one unit of distance corresponds to the four cardinal directions around a given coordinate. Here, we also included the patches at the north-west, north-east, south-east and south-west (see ReadMe.pdf). 
 
 The timing of event is as follow: in each period,
+
 1. households locate which stores is currently the closest, 
 2. firms know their current revenue, that is the number of consumers if they remain in the same spot (1), and compute the revenue they would have if they were to move to the eight patches around — assuming the other stores remain at their current place. It eventually moves to the location that yields the highest revenue,
 3. households consume based on the final location of the stores (demand is perfectly inelastic). 
