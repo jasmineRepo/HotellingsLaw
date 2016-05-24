@@ -184,5 +184,9 @@ public class Firm extends DigitalTurtle implements EventListener, IIntSource, Se
 	
 	public void setRevenues(int revenues){ this.revenues = revenues; }
 	public int getRevenues(){ return revenues; }
+	
+	public int getFirmIndex(){
+		return model.getFirmList().indexOf(this);
+	}
 
 }

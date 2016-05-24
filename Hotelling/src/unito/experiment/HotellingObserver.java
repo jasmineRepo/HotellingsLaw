@@ -93,7 +93,7 @@ public class HotellingObserver extends AbstractSimulationObserverManager impleme
 		// one time series per firm
 		csRevenuesPlotter = new TimeSeriesSimulationPlotter("firms' revenues", "revenues");
 		for(Firm firm : model.getFirmList()){
-			csRevenuesPlotter.addSeries("", (IIntSource) new MultiTraceFunction.Integer(firm, Firm.Variables.Revenues));
+			csRevenuesPlotter.addSeries("Firm " + firm.getFirmIndex(), (IIntSource) new MultiTraceFunction.Integer(firm, Firm.Variables.Revenues));
 		}
 		GuiUtils.addWindow(csRevenuesPlotter, 600, 0, 500, 300); 
 		
