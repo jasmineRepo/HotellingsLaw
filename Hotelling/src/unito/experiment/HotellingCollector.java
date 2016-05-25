@@ -1,8 +1,8 @@
 package unito.experiment;
 
-import microsim.data.db.DatabaseUtils;
+import microsim.annotation.GUIparameter;
+import microsim.data.DataExport;
 import microsim.engine.AbstractSimulationCollectorManager;
-import microsim.engine.SimulationEngine;
 import microsim.engine.SimulationManager;
 import microsim.event.EventGroup;
 import microsim.event.EventListener;
@@ -18,6 +18,15 @@ import unito.model.HotellingModel;
 public class HotellingCollector extends AbstractSimulationCollectorManager implements EventListener {
 
 	private final static Logger log = Logger.getLogger(HotellingCollector.class);
+	
+	@GUIparameter
+	private boolean exportToCSV = false;
+	
+	@GUIparameter
+	private boolean persistToDatabase = false;
+	
+	private DataExport firmData;
+	private DataExport consumerData;
 	
 	public CrossSection.Integer csRevenues;
 	public MeanArrayFunction fMeanRevenues;
@@ -40,27 +49,10 @@ public class HotellingCollector extends AbstractSimulationCollectorManager imple
 		switch ((Processes) type) {
 
 		case DumpFirm:
-			try {
+			firmData.export();
 
-				DatabaseUtils.snap(DatabaseUtils.getOutEntityManger(),
-						(long) SimulationEngine.getInstance().getCurrentRunNumber(),
-						getEngine().getTime(),
-						((HotellingModel) getManager()).firmList); 
-			} catch (Exception e) {
-				log.error(e.getMessage());
-			}
-			break;
 		case DumpConsumer:
-			try {
-
-				DatabaseUtils.snap(DatabaseUtils.getOutEntityManger(),
-						(long) SimulationEngine.getInstance().getCurrentRunNumber(),
-						getEngine().getTime(),
-						((HotellingModel) getManager()).consumerList); 
-			} catch (Exception e) {
-				log.error(e.getMessage());
-			}
-			break;
+			consumerData.export();
 			
 		case Update:
 			csRevenues.updateSource();
@@ -75,20 +67,45 @@ public class HotellingCollector extends AbstractSimulationCollectorManager imple
 	// ---------------------------------------------------------------------
 
 	public void buildObjects() {
+		
 		csRevenues = new CrossSection.Integer(((HotellingModel) getManager()).getFirmList(), Firm.class, "getRevenues", true); 
 		fMeanRevenues = new MeanArrayFunction(csRevenues);
+		
+		if(exportToCSV || persistToDatabase) {
+			firmData = new DataExport(((HotellingModel) getManager()).firmList, persistToDatabase, exportToCSV);
+			consumerData = new DataExport(((HotellingModel) getManager()).consumerList, persistToDatabase, exportToCSV);
+		}		
 	} 
 	
 	public void buildSchedule() {
 
-		EventGroup eventGroup = new EventGroup();
+		if(exportToCSV || persistToDatabase) {
+			EventGroup eventGroup = new EventGroup();
+	
+			eventGroup.addEvent(this, Processes.DumpConsumer);
+			eventGroup.addEvent(this, Processes.DumpFirm);
+			eventGroup.addEvent(this, Processes.Update);
+	
+			getEngine().getEventList().scheduleRepeat(eventGroup, 0., Order.AFTER_ALL.getOrdering()-1, 1.);
+		}
+	}
 
-		eventGroup.addEvent(this, Processes.DumpConsumer);
-		eventGroup.addEvent(this, Processes.DumpFirm);
-		eventGroup.addEvent(this, Processes.Update);
+	// Access Methods
+	
+	public boolean isPersistToDatabase() {
+		return persistToDatabase;
+	}
 
-		getEngine().getEventList().scheduleRepeat(eventGroup, 0., Order.AFTER_ALL.getOrdering()-1, 1.);
+	public void setPersistToDatabase(boolean persistToDatabase) {
+		this.persistToDatabase = persistToDatabase;
+	}
 
+	public boolean isExportToCSV() {
+		return exportToCSV;
+	}
+
+	public void setExportToCSV(boolean exportToCSV) {
+		this.exportToCSV = exportToCSV;
 	}
 
 }

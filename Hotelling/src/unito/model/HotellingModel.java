@@ -19,7 +19,7 @@ public class HotellingModel extends AbstractSimulationManager implements EventLi
 	private final static Logger log = Logger.getLogger(HotellingModel.class);
 
 	@GUIparameter
-	Integer numberOfFirms = 2;
+	Integer numberOfFirms = 5;
 	
 	@GUIparameter
 	Integer endTime = 200;
@@ -31,7 +31,7 @@ public class HotellingModel extends AbstractSimulationManager implements EventLi
 	Integer ySize = 50;
 	
 	@GUIparameter
-	Boolean colorSurface = false;
+	Boolean colorSurface = true;
 	
 	public List<Firm> firmList;
 	public List<Consumer> consumerList;
@@ -90,6 +90,7 @@ public class HotellingModel extends AbstractSimulationManager implements EventLi
 	public void buildSchedule() {
 		EventGroup eventGroup = new EventGroup();
 		
+		//XXX: Do we need to call ClosestFirm so many times?  Here it is called in all three collection events below, and in Move it is called a number of times equal to the number of firms multiplied by 9 (the number of locations checked by each firm)!
 		eventGroup.addCollectionEvent(consumerList, Consumer.Processes.ClosestFirm);
 		eventGroup.addCollectionEvent(firmList, Firm.Processes.Move);
 		eventGroup.addCollectionEvent(consumerList, Consumer.Processes.Consume);
