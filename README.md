@@ -1,6 +1,6 @@
 # Hotellings Law
 
-Hotelling (1929) studied competition between firms, taking into account their geographical location. A detailed description of the original model can be find [here](http://ccl.northwestern.edu/netlogo/models/Hotelling'sLaw).
+Hotelling (1929) studied competition between firms, taking into account their geographical location. A detailed description of the original model can be found [here](http://ccl.northwestern.edu/netlogo/models/Hotelling'sLaw).
 
 This application of Hotelling’s model simplifies it by only considering changes in location, assuming identical prices across firms and constant price over time. Following Ottino, Stonedahl, and Wilensky (2009), it however extends the original paper by allowing stores to move along a plane (two-dimension movement). 
 
@@ -8,13 +8,13 @@ One difference between their representation and ours is the way distance between
 
 The timing of event is as follow: in each period,
 
-1. households locate which stores is currently the closest, 
-2. firms know their current revenue, that is the number of consumers if they remain in the same spot (1), and compute the revenue they would have if they were to move to the eight patches around — assuming the other stores remain at their current place. It eventually moves to the location that yields the highest revenue,
+1. households locate which store is currently the closest, 
+2. firms know their current revenue, that is the number of consumers if they remain in the same spot (1), and compute the revenue they would have if they were to move to the eight nearest-neighbour places — assuming the other firms remain at their current place. The firm eventually moves to the location that yields the highest revenue,
 3. households consume based on the final location of the stores (demand is perfectly inelastic). 
 
 ## Results
 
-As in the original model, a stable equilibrium exists only for duopoly, in which case it is located at the middle of the plane. For all number of stores greater than two, firms keep changing their location. Occasionally, when two firms bump into each other, unstable equilibria emerge, with these two (or more) firms following each other for a while, before eventually separating. 
+As in the original model, a stable equilibrium exists only for a duopoly, in which case it is located at the middle of the plane. For all numbers of firms greater than two, firms keep changing their location. Occasionally, when two firms bump into each other, unstable equilibria emerge, with these two (or more) firms following each other for a while, before eventually separating. 
 
 ## References 
 
