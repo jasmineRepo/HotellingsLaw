@@ -4,7 +4,7 @@ Hotelling (1929) studied competition between firms, taking into account their ge
 
 This application of Hotelling’s model simplifies it by only considering changes in location, assuming identical prices across firms and constant price over time. Following Ottino, Stonedahl, and Wilensky (2009), it however extends the original paper by allowing stores to move along a plane (two-dimension movement). 
 
-One difference between their representation and ours is the way distance between consumers and firms is defined. In their model, one unit of distance corresponds to the four cardinal directions around a given coordinate. Here, we also included the patches at the north-west, north-east, south-east and south-west (see ReadMe.pdf). 
+One difference between their representation and ours is the way distance between consumers and firms is defined. In their model, one unit of distance corresponds to the four cardinal directions around a given coordinate. Here, we also included the patches at the north-west, north-east, south-east and south-west. 
 
 The timing of event is as follow: in each period,
 
