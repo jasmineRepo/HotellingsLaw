@@ -63,7 +63,7 @@ public class HotellingModel extends AbstractSimulationManager implements EventLi
 		firmList = new ArrayList<Firm>();
 		consumerList = new ArrayList<Consumer>();
 		
-		// allows for two firms to be initially on the same spot
+		// note: allows firms to be initially on the same spot
 		for(int i = 0; i < numberOfFirms; i++){
 					int x = SimulationEngine.getRnd().nextInt(xSize);
 					int y = SimulationEngine.getRnd().nextInt(ySize);

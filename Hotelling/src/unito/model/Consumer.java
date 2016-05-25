@@ -27,7 +27,7 @@ public class Consumer extends DigitalTurtle implements EventListener, Serializab
 	@Transient
 	private Firm chosenFirm;
 	
-	private int chosenFirmAsInt; // use to create a color map indicating the preference of each consumer, see Observer
+	private int chosenFirmAsInt; // used to create a color map indicating the preference of each consumer, see Observer
 
 	// ---------------------------------------------------------------------
 	// Constructor	
@@ -102,7 +102,7 @@ public class Consumer extends DigitalTurtle implements EventListener, Serializab
 			if(closestFirms.keySet().size() == 1){
 				closestFirm = (Firm) closestFirms.keySet().toArray(new Firm[0])[0];
 			} else {
-				// if there is a tie, then consumers pick they preferred stores randomly
+				// if there is a tie, then consumers pick their preferred stores randomly
 				closestFirm = (Firm) closestFirms.keySet().toArray(new Firm[closestFirms.size()])[SimulationEngine.getRnd().nextInt(closestFirms.keySet().size())];
 			}
 				
@@ -110,7 +110,7 @@ public class Consumer extends DigitalTurtle implements EventListener, Serializab
 	 }
 	
 	public void consume(){
-		// this method is only used once firms have changed their location
+		// this method is used once firms have actually changed their location
 		this.chosenFirm = closestFirm();
 		
 		int chosenFirmAsInt = 0;

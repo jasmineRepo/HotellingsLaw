@@ -91,7 +91,7 @@ public class Firm extends DigitalTurtle implements EventListener, IIntSource, Se
 	public void move() {
 		Table<Integer, Integer, Integer> potentialConsumers = potentialConsumers();
 		
-		// different locations could yield identical number of consumers (tie). These two loops are taking care of this
+		// different locations could yield an identical number of consumers (tie). These two loops are taking care of this
 		Table<Integer, Integer, Integer> maxConsumersTable = HashBasedTable.create();	
 		Table.Cell<Integer, Integer, Integer> maxEntry = null;
 		
@@ -103,7 +103,7 @@ public class Firm extends DigitalTurtle implements EventListener, IIntSource, Se
 		}
 		maxConsumersTable.put(maxEntry.getRowKey(), maxEntry.getColumnKey(), maxEntry.getValue());
 		
-		// include all the other locations yielding the same number of consumers
+		// include all other locations yielding the same number of consumers
 		for(Table.Cell<Integer, Integer, Integer> entry : potentialConsumers.cellSet()){
 			if(entry.getValue().equals(maxEntry.getValue())){
 				maxConsumersTable.put(maxEntry.getRowKey(), maxEntry.getColumnKey(), maxEntry.getValue());
@@ -139,7 +139,7 @@ public class Firm extends DigitalTurtle implements EventListener, IIntSource, Se
 		int potentialConsumerCounter;
 		Table<Integer, Integer, Integer> expectedConsumers = HashBasedTable.create();
 		
-		// firms go in each of the eight patches around its location and compute the number of consumers he would have
+		// firms go in each of the eight patches around their location and compute the number of consumers they would have
 		for(int i = Math.max(0, xx - 1); i <= Math.min(model.getxSize() - 1, xx + 1); i++){
 			for (int j = Math.max(0, yy - 1); j <= Math.min(model.getySize() - 1, yy + 1); j++){
 				
