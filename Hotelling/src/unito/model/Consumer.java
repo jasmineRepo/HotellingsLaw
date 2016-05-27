@@ -14,8 +14,8 @@ import javax.persistence.Transient;
 
 @Entity
 public class Consumer extends DigitalTurtle implements EventListener {
-	
-	private static final long serialVersionUID = 1219220590143482752L;
+
+	private static final long serialVersionUID = 1393426166793140767L;
 
 	@Id
 	private PanelEntityKey key;

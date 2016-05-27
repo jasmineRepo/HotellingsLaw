@@ -90,8 +90,8 @@ public class HotellingModel extends AbstractSimulationManager implements EventLi
 	public void buildSchedule() {
 		EventGroup eventGroup = new EventGroup();
 		
-		//XXX: Do we need to call ClosestFirm so many times?  Here it is called in all three collection events below, and in Move it is called a number of times equal to the number of firms multiplied by 9 (the number of locations checked by each firm)!
-		eventGroup.addCollectionEvent(consumerList, Consumer.Processes.ClosestFirm);
+		//XXX: Why do we need to schedule the first event - ClostestFirm? 
+//		eventGroup.addCollectionEvent(consumerList, Consumer.Processes.ClosestFirm);
 		eventGroup.addCollectionEvent(firmList, Firm.Processes.Move);
 		eventGroup.addCollectionEvent(consumerList, Consumer.Processes.Consume);
 
