@@ -1,5 +1,7 @@
 # Hotellings Law
 
+Implemented in JAS-mine by Hugo Lhuillier (2016).
+
 Hotelling (1929) studied competition between firms, taking into account their geographical location. A detailed description of the original model can be found [here](http://ccl.northwestern.edu/netlogo/models/Hotelling'sLaw).
 
 This application of Hotelling’s model simplifies it by only considering changes in location, assuming identical prices across firms and constant price over time. Following Ottino, Stonedahl, and Wilensky (2009), it however extends the original paper by allowing stores to move along a plane (two-dimension movement). 
