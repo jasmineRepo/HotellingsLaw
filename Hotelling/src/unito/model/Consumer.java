@@ -110,28 +110,12 @@ public class Consumer extends DigitalTurtle implements EventListener {
 	public void consume(){
 		// this method is used once firms have actually changed their location
 		this.chosenFirm = closestFirm();
-		
-//		int chosenFirmAsInt = 0;
-//		
-//		for(int i = 0; i < model.getNumberOfFirms(); i++){
-//			if(chosenFirm.equals(model.getFirmList().get(i))){
-//				chosenFirmAsInt = i;
-//			}
-//		}
 		this.chosenFirmAsInt = (int)chosenFirm.getKey().getId();
 	}
 	
 	public Map<Firm, Integer> distance(int xx, int yy){
 		Map<Firm, Integer> distance = new HashMap<>();
-		
-//		for(int i = 0; i < model.getNumberOfFirms(); i++){
-//			int xFirm = model.getFirmList().get(i).getX();
-//			int yFirm = model.getFirmList().get(i).getY();
-//			int xDistance = Math.abs(xFirm - xx);
-//			int yDistance = Math.abs(yFirm - yy);
-//			int maxDistance = Math.max(xDistance, yDistance);
-//			distance.put(model.getFirmList().get(i), maxDistance);
-//		}
+
 		for(Firm firm : model.getFirmList()){
 			int xFirm = firm.getX();
 			int yFirm = firm.getY();

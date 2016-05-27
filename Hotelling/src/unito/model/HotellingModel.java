@@ -90,8 +90,6 @@ public class HotellingModel extends AbstractSimulationManager implements EventLi
 	public void buildSchedule() {
 		EventGroup eventGroup = new EventGroup();
 		
-		//XXX: Why do we need to schedule the first event - ClostestFirm? 
-//		eventGroup.addCollectionEvent(consumerList, Consumer.Processes.ClosestFirm);
 		eventGroup.addCollectionEvent(firmList, Firm.Processes.Move);
 		eventGroup.addCollectionEvent(consumerList, Consumer.Processes.Consume);
 
