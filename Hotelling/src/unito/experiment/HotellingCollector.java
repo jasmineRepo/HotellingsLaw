@@ -86,7 +86,7 @@ public class HotellingCollector extends AbstractSimulationCollectorManager imple
 			eventGroup.addEvent(this, Processes.DumpFirm);
 			eventGroup.addEvent(this, Processes.Update);
 	
-			getEngine().getEventList().scheduleRepeat(eventGroup, 0., Order.AFTER_ALL.getOrdering()-1, 1.);
+			getEngine().getEventQueue().scheduleRepeat(eventGroup, 0., Order.AFTER_ALL.getOrdering()-1, 1.);
 		}
 	}
 

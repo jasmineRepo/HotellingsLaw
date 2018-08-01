@@ -93,8 +93,8 @@ public class HotellingModel extends AbstractSimulationManager implements EventLi
 		eventGroup.addCollectionEvent(firmList, Firm.Processes.Move);
 		eventGroup.addCollectionEvent(consumerList, Consumer.Processes.Consume);
 
-		getEngine().getEventList().scheduleRepeat(eventGroup, 0., 0, 1.);
-		getEngine().getEventList().scheduleSystem(endTime, Order.AFTER_ALL.getOrdering(), 0., getEngine(), SystemEventType.Stop);
+		getEngine().getEventQueue().scheduleRepeat(eventGroup, 0., 0, 1.);
+		getEngine().getEventQueue().scheduleSystem(endTime, Order.AFTER_ALL.getOrdering(), 0., getEngine(), SystemEventType.Stop);
 		
 		log.debug("Model schedule created");
 	}

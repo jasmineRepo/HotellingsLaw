@@ -116,7 +116,7 @@ public class HotellingObserver extends AbstractSimulationObserverManager impleme
 		    eventGroup.addEvent(meanRevenuesPlotter, CommonEventType.Update);
 		    eventGroup.addEvent(csRevenuesPlotter, CommonEventType.Update);
 	
-			getEngine().getEventList().scheduleRepeat(eventGroup, 0., Order.AFTER_ALL.getOrdering()-1, 1.);
+			getEngine().getEventQueue().scheduleRepeat(eventGroup, 0., Order.AFTER_ALL.getOrdering()-1, 1.);
 			
 			log.debug("Observer schedule created");
 		}
