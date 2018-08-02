@@ -23,3 +23,5 @@ As in the original model, a stable equilibrium exists only for a duopoly, in whi
 * Hotelling, Harold. (1929). "Stability in Competition." The Economic Journal 39.153: 41 -57. (Stable URL: http://www.jstor.org/stable/2224214 ).
 
 * Ottino, B., Stonedahl, F. and Wilensky, U. (2009). NetLogo Hotelling's Law model. http://ccl.northwestern.edu/netlogo/models/Hotelling'sLaw. Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL.
+
+More information can be found on the JAS-mine website at http://www.jas-mine.net/demo/hotelling.
